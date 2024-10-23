@@ -1,0 +1,81 @@
+body {
+  font-family: 'Playfair Display',
+    serif;
+  color: #6a4e3b;
+}
+
+/* ヘッダー */
+.header {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 32px;
+}
+
+/* メインコンテンツ */
+.confirm {
+  width: 80%;
+  max-width: 1230px;
+  margin: 0 auto;
+}
+
+.confirm__title {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 28px;
+}
+
+.confirm__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirm__row {
+  border-bottom: 1px solid #ddd;
+}
+
+.confirm__label {
+  background-color: #c8b7a6;
+  padding: 15px 0 15px 40px;
+  width: 30%;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+}
+
+.confirm__value {
+  padding: 15px 0 15px 40px;
+  width: 70%;
+  text-align: left;
+}
+
+.confirm__buttons {
+  text-align: center;
+}
+
+.confirm__button {
+  width: 100px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #6a4e3b;
+  color: white;
+}
+
+.confirm__link {
+  color: inherit;
+  margin-left: 40px;
+}
+
+.confirm__button:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,59 @@
+/* 基本設定 */
+body {
+  font-family: 'Playfair Display', serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* サンクスページのコンテナ */
+.thanks-page__container {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+/* 背景のThank youテキスト */
+.thanks-page__background-text {
+  font-size: 150px;
+  color: rgba(0, 0, 0, 0.05);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 中央のメッセージコンテンツ */
+.thanks-page__content {
+  position: relative;
+  z-index: 2;
+}
+
+.thanks-page__message {
+  font-size: 24px;
+  color: #6a4e3b;
+  margin-bottom: 20px;
+}
+
+/* HOMEボタン */
+.thanks-page__button {
+  display: inline-block;
+  padding: 5px 30px;
+  background-color: #6a4e3b;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.thanks-page__button:hover {
+  background-color: #5a3e2b;
+}
