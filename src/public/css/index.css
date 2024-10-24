@@ -34,6 +34,12 @@ body {
   align-items: center;
 }
 
+.form__error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
 .form__label-box {
   width: 35%;
 }
@@ -62,8 +68,8 @@ body {
 .form__textarea {
   padding: 10px 0;
   border: none;
+  color: #6a4e3b;
   border-radius: 3px;
-  color: #aaa;
   background-color: #f2f2f2;
 }
 

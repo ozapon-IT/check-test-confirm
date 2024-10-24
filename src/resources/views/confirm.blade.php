@@ -21,49 +21,53 @@
         <div class="confirm">
             <h2 class="confirm__title">Confirm</h2>
 
-            <form class="confirm__form" action="/thanks" method="POST">
+            <form class="confirm__form" action="/store" method="POST">
                 @csrf
                 <table class="confirm__table">
                     <tr class="confirm__row">
                         <th class="confirm__label">お名前</th>
-                        <td class="confirm__value">山田 太郎</td>
+                        <td class="confirm__value">{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">性別</th>
-                        <td class="confirm__value">男性</td>
+                        <td class="confirm__value">
+                            @if ($inputs['gender'] === 'male') 男性
+                            @elseif ($inputs['gender'] === 'female') 女性
+                            @else その他
+                            @endif
+                        </td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">メールアドレス</th>
-                        <td class="confirm__value">test@example.com</td>
+                        <td class="confirm__value">{{ $inputs['email'] }}</td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">電話番号</th>
-                        <td class="confirm__value">08012345678</td>
+                        <td class="confirm__value">{{ $inputs['phone1'] }}-{{ $inputs['phone2'] }}-{{ $inputs['phone3'] }}</td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">住所</th>
-                        <td class="confirm__value">東京都渋谷区千駄ヶ谷1-2-3</td>
+                        <td class="confirm__value">{{ $inputs['address'] }}</td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">建物名</th>
-                        <td class="confirm__value">千駄ヶ谷マンション101</td>
+                        <td class="confirm__value">{{ $inputs['building'] ?? 'なし'}}</td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">お問い合わせの種類</th>
-                        <td class="confirm__value">商品の交換について</td>
+                        <td class="confirm__value">
+                            {{ App\Models\Category::find($inputs['content'])->content }}
+                        </td>
                     </tr>
                     <tr class="confirm__row">
                         <th class="confirm__label">お問い合わせ内容</th>
-                        <td class="confirm__value">
-                            届いた商品が注文した商品ではありませんでした。<br>
-                            商品の取り替えをお願いします。
-                        </td>
+                        <td class="confirm__value">{!! nl2br(e($inputs['detail'])) !!}</td>
                     </tr>
                 </table>
 
                 <div class="confirm__buttons">
                     <button class="confirm__button" type="submit">送信</button>
-                    <a class="confirm__link" href="/">修正</a>
+                    <a class="confirm__link" href="/?back=1">修正</a>
                 </div>
             </form>
         </div>
