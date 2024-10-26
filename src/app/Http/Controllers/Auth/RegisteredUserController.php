@@ -22,7 +22,6 @@ class RegisteredUserController extends Controller
 
         $this->createNewUser->create($validated);
 
-        // return redirect()->route('login');
-        return redirect('/login');
+        return redirect()->route('login');
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 </head>
-<body>
 
+<body>
     <!-- ヘッダー -->
     <header class="header">
         <div class="header__container">
@@ -47,7 +48,7 @@
                     <!-- パスワード -->
                     <div class="form__group">
                         <label class="form__label" for="password">パスワード</label>
-                        <input class="form__input" type="password" id="password" name="password" placeholder="例: coachetech1106">
+                        <input class="form__input" type="password" id="password" name="password" placeholder="例: coachtech1106">
                         @error('password')
                             <div class="form__error">{{ $message }}</div>
                         @enderror
@@ -61,6 +62,6 @@
             </div>
         </section>
     </main>
-
 </body>
+
 </html>

@@ -23,11 +23,11 @@ Route::post('/store', [ContactController::class,'store']);
 
 Route::get('/thanks', [ContactController::class, 'thanks']);
 
-// Route::get('/admin', function () {
-//   return view('admin');
-// })->middleware('auth');
-
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
+    Route::get('/admin/export', [AdminController::class, 'export'])->name('admin.export');
 });
+
+Route::delete('/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy')->middleware('auth');
+

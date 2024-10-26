@@ -1,9 +1,10 @@
-/* コモン */
+/* 基本設定 */
 body {
   font-family: 'Playfair Display', serif;
   color: #6a4e3b;
 }
 
+/* ヘッダー */
 .header {
   padding: 15px 0;
   border-bottom: 1px solid #eee;
@@ -12,10 +13,11 @@ body {
 
 .header__title {
   margin: 0;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
-.form {
+/* メインコンテンツ */
+.form__container {
   width: 80%;
   max-width: 1230px;
   margin: 0 auto;
@@ -24,7 +26,7 @@ body {
 .form__title {
   text-align: center;
   margin: 40px 0;
-  font-size: 28px;
+  font-size: 1.8rem;
 }
 
 .form__group {
@@ -68,7 +70,6 @@ body {
   padding: 10px 0;
   border: none;
   color: #6a4e3b;
-  border-radius: 3px;
   background-color: #f2f2f2;
 }
 
@@ -97,7 +98,6 @@ body {
   margin-right: 50px;
 }
 
-/* ---------カスタムラジオボタンのスタイル--------- */
 .form__radio {
   display: none;
 }
@@ -106,7 +106,7 @@ body {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -140,7 +140,6 @@ body {
   background-color: #6a4e3b;
   border-radius: 50%;
 }
-/* ----------------------------------------------- */
 
 /* 電話番号 */
 .form__group--phone .form__input-box {
@@ -159,7 +158,6 @@ body {
   width: 35%;
 }
 
-/* -----------セレクトボックスのスタイル---------- */
 .form__select {
   width: 100%;
   height: 40px;
@@ -181,7 +179,6 @@ body {
   border-top: 8px solid #6a4e3b;
   pointer-events: none;
 }
-/* ----------------------------------------------- */
 
 /* お問い合わせ内容 */
 .form__group--content {
@@ -199,14 +196,14 @@ body {
   margin: 10px auto;
   width: 130px;
   padding: 8px;
-  background-color: #6a4e3b;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 3px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
+  background-color: #957760;
+  transition: background-color 0.3s;
 }
 
 .form__button:hover {
-  background-color: #5a3e2b;
+  background-color: #6a4e3b;
 }
