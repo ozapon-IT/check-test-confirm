@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせフォーム</title>
+    <title>Contact - FashionablyLate</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
+
 <body>
-    <!-- ヘッダー部分 -->
+    <!-- ヘッダー -->
     <header class="header">
         <div class="header__container">
             <h1 class="header__title">FashionablyLate</h1>
         </div>
     </header>
 
-    <!-- メインコンテンツ部分 -->
-    <main class="main">
-        <div class="form">
+    <!-- メインコンテンツ -->
+    <main class="form">
+        <div class="form__container">
             <h2 class="form__title">Contact</h2>
 
             <form class="form__body" action="/confirm" method="POST">
@@ -171,4 +173,5 @@
         </div>
     </main>
 </body>
+
 </html>

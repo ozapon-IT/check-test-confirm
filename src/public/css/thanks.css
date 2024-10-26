@@ -17,7 +17,7 @@ body {
 
 /* 背景のThank youテキスト */
 .thanks-page__background-text {
-  font-size: 150px;
+  font-size: 10rem;
   color: rgba(0, 0, 0, 0.05);
   margin: 0;
   position: absolute;
@@ -36,7 +36,7 @@ body {
 }
 
 .thanks-page__message {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #6a4e3b;
   margin-bottom: 20px;
 }
@@ -45,15 +45,14 @@ body {
 .thanks-page__button {
   display: inline-block;
   padding: 5px 30px;
-  background-color: #6a4e3b;
-  color: white;
+  color: #fff;
   text-decoration: none;
-  border-radius: 3px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
+  background-color: #957760;
   transition: background-color 0.3s ease;
 }
 
 .thanks-page__button:hover {
-  background-color: #5a3e2b;
+  background-color: #6a4e3b;
 }

@@ -1,6 +1,6 @@
+/* 基本設定 */
 body {
-  font-family: 'Playfair Display',
-    serif;
+  font-family: 'Playfair Display', serif;
   color: #6a4e3b;
 }
 
@@ -13,11 +13,11 @@ body {
 
 .header__title {
   margin: 0;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 /* メインコンテンツ */
-.confirm {
+.confirm__container {
   width: 80%;
   max-width: 1230px;
   margin: 0 auto;
@@ -26,7 +26,7 @@ body {
 .confirm__title {
   text-align: center;
   margin: 40px 0;
-  font-size: 28px;
+  font-size: 1.8rem;
 }
 
 .confirm__table {
@@ -42,11 +42,10 @@ body {
 }
 
 .confirm__label {
-  background-color: #c8b7a6;
+  background-color: #957760;
   padding: 15px 0 15px 40px;
   width: 30%;
-  /* font-weight: bold; */
-  color: white;
+  color: #fff;
   text-align: left;
 }
 
@@ -64,18 +63,23 @@ body {
   width: 100px;
   padding: 5px 10px;
   border: none;
-  border-radius: 3px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #957760;
+  transition: background-color 0.3s;
+}
+
+.confirm__button:hover {
   background-color: #6a4e3b;
-  color: white;
 }
 
 .confirm__link {
   color: inherit;
   margin-left: 40px;
+  text-decoration: none;
 }
 
-.confirm__button:hover {
-  opacity: 0.8;
+.confirm__link:hover {
+  text-decoration: underline;
 }
