@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +15,13 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [ContactController::class, 'index']);
+Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 
-Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 
-Route::post('/store', [ContactController::class,'store']);
+Route::post('/store', [ContactController::class,'store'])->name('contact.store');
 
-Route::get('/thanks', [ContactController::class, 'thanks']);
+Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');

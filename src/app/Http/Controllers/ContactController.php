@@ -15,7 +15,7 @@ class ContactController extends Controller
 
         $inputs = $request->session()->get('inputs');
 
-        return view('index', compact('categories', 'inputs'));
+        return view('contact.index', compact('categories', 'inputs'));
     }
 
     public function confirm(ContactRequest $request)
@@ -24,7 +24,7 @@ class ContactController extends Controller
 
         $request->session()->put('inputs', $inputs);
 
-        return view('confirm', compact('inputs'));
+        return view('contact.confirm', compact('inputs'));
     }
 
     public function store(Request $request)
@@ -51,11 +51,11 @@ class ContactController extends Controller
 
         $request->session()->forget('inputs');
 
-        return redirect('/thanks');
+        return redirect()->route('contact.thanks');
     }
 
     public function thanks()
     {
-        return view('thanks');
+        return view('contact.thanks');
     }
 }

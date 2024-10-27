@@ -1,0 +1,14 @@
+body {
+  font-family: 'Playfair Display', serif;
+  color: #6a4e3b;
+}
+
+.header {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 2rem;
+}
