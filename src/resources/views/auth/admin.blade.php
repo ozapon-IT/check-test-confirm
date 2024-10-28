@@ -86,17 +86,11 @@
         <tbody class="table__body">
             @foreach($contacts as $contact)
             <tr class="table__row">
-                <td class="table__cell table__cell--desc">{{ $contact->last_name }} {{ $contact->first_name }}</td>
-                <td class="table__cell table__cell--desc">
-                    @if($contact->gender == 1) 男性
-                    @elseif($contact->gender == 2) 女性
-                    @else その他
-                    @endif
-                </td>
+                <td class="table__cell table__cell--desc">{{ $contact->full_name }}</td>
+                <td class="table__cell table__cell--desc">{{ $contact->gender_text }}</td>
                 <td class="table__cell table__cell--desc">{{ $contact->email }}</td>
                 <td class="table__cell table__cell--desc">{{ $contact->category->content }}</td>
                 <td class="table__cell table__cell--desc">
-                    {{-- <button class="table__detail-button">詳細</button> --}}
                     <a class="table__detail-button" href="#modal-{{ $contact->id }}">詳細</a>
                 </td>
             </tr>
@@ -106,90 +100,7 @@
 
     <!-- モーダルウィンドウ -->
     @foreach($contacts as $contact)
-    <div class="modal" id="modal-{{ $contact->id }}">
-        <div class="modal__content">
-            <!-- 閉じるボタン -->
-            <a href="#" class="modal__close">&times;</a>
-
-            <!-- お問い合わせ詳細 -->
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>お名前</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->last_name }} {{ $contact->first_name }}</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>性別</p>
-                </div>
-                <div class="contact__content">
-                    <p>@if($contact->gender == 1) 男性
-                    @elseif($contact->gender == 2) 女性
-                    @else その他
-                    @endif</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>メールアドレス</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->email }}</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>電話番号</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->tell }}</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>住所</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->address }}</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>建物名</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->building }}</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>お問い合わせの種類</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->category->content }}</p>
-                </div>
-            </div>
-            <div class="contact__box">
-                <div class="contact__item">
-                    <p>お問い合わせ内容</p>
-                </div>
-                <div class="contact__content">
-                    <p>{{ $contact->detail }}</p>
-                </div>
-            </div>
-
-            <!-- 削除ボタン -->
-            <form action="{{ route('admin.destroy', ['id' => $contact->id]) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <div class="button__box">
-                    <button type="submit" class="modal__delete-button">削除</button>
-                </div>
-            </form>
-        </div>
-    </div>
+        <x-admin-modal :contact="$contact" />
     @endforeach
 </div>
 @endsection

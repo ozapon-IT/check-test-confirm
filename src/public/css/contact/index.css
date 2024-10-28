@@ -24,7 +24,7 @@
 
 .form__error {
   color: red;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   margin-top: 0.25rem;
 }
 
@@ -65,18 +65,18 @@
   padding-left: 20px;
 }
 
-.form__input:not(.form__input--phone) {
+.form__input {
   padding-left: 20px;
 }
 
 
 /* お名前 */
-.form__group--name .form__input-box {
+.form__group--last_name_first_name .form__input-box {
   display: flex;
   justify-content: space-between;
 }
 
-.form__group--name .form__input {
+.form__group--last_name_first_name .form__input {
   width: 45%;
 }
 
@@ -129,18 +129,18 @@
 }
 
 /* 電話番号 */
-.form__group--phone .form__input-box {
+.form__group--phone1_phone2_phone3 .form__input-box {
   display: flex;
   justify-content: space-between;
 }
 
 .form__input--phone {
   width: 25%;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* お問い合わせの種類 */
-.form__group--type .form__input-box {
+.form__group--content .form__input-box {
   position: relative;
   width: 35%;
 }
@@ -155,7 +155,7 @@
   position: relative;
 }
 
-.form__group--type .form__input-box::after {
+.form__group--content .form__input-box::after {
   content: "";
   position: absolute;
   right: 10px;
@@ -168,11 +168,11 @@
 }
 
 /* お問い合わせ内容 */
-.form__group--content {
+.form__group--detail {
   align-items: start;
 }
 
-.form__group--content .form__textarea {
+.form__group--detail .form__textarea {
   width: 100%;
   resize: none;
   overflow: auto;

@@ -9,27 +9,25 @@ use App\Models\Category;
 
 class ContactController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $categories = Category::all();
 
-        $inputs = $request->session()->get('inputs');
-
-        return view('contact.index', compact('categories', 'inputs'));
+        return view('contact.index', compact('categories'));
     }
 
     public function confirm(ContactRequest $request)
     {
         $inputs = $request->all();
 
-        $request->session()->put('inputs', $inputs);
+        $category = Category::find($inputs['content']);
 
-        return view('contact.confirm', compact('inputs'));
+        return view('contact.confirm', compact('inputs', 'category'));
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $inputs = $request->session()->get('inputs');
+        $inputs = $request->all();
 
         $genderMap = [
             'male' => 1,
@@ -49,9 +47,14 @@ class ContactController extends Controller
             'detail' => $inputs['detail'],
         ]);
 
-        $request->session()->forget('inputs');
-
         return redirect()->route('contact.thanks');
+    }
+
+    public function edit(Request $request)
+    {
+        $inputs = $request->all();
+
+        return redirect()->route('contact.index')->withInput($inputs);
     }
 
     public function thanks()
