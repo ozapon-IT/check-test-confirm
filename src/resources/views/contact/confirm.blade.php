@@ -18,54 +18,56 @@
 <div class="confirm">
     <h2 class="confirm__title">Confirm</h2>
 
+    <!-- 確認フォーム -->
     <form class="confirm__form" action="{{ route('contact.store') }}" method="POST">
         @csrf
+
+        @foreach($inputs as $key => $value)
+            @if(is_array($value))
+                @foreach($value as $k => $v)
+                    <input type="hidden" name="{{ $key }}[{{ $k }}]" value="{{ $v }}">
+                @endforeach
+            @else
+                <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+            @endif
+        @endforeach
+
         <table class="confirm__table">
-            <tr class="confirm__row">
-                <th class="confirm__label">お名前</th>
-                <td class="confirm__value">{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">性別</th>
-                <td class="confirm__value">
-                    @if ($inputs['gender'] === 'male') 男性
-                    @elseif ($inputs['gender'] === 'female') 女性
-                    @else その他
-                    @endif
-                </td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">メールアドレス</th>
-                <td class="confirm__value">{{ $inputs['email'] }}</td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">電話番号</th>
-                <td class="confirm__value">{{ $inputs['phone1'] }}-{{ $inputs['phone2'] }}-{{ $inputs['phone3'] }}</td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">住所</th>
-                <td class="confirm__value">{{ $inputs['address'] }}</td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">建物名</th>
-                <td class="confirm__value">{{ $inputs['building'] ?? 'なし'}}</td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">お問い合わせの種類</th>
-                <td class="confirm__value">
-                    {{ App\Models\Category::find($inputs['content'])->content }}
-                </td>
-            </tr>
-            <tr class="confirm__row">
-                <th class="confirm__label">お問い合わせ内容</th>
-                <td class="confirm__value">{!! nl2br(e($inputs['detail'])) !!}</td>
-            </tr>
+            <x-confirm-field label="お名前" value="{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}" />
+
+            <x-confirm-field label="性別" :value="($inputs['gender'] === 'male') ? '男性' : (($inputs['gender'] === 'female') ? '女性' : 'その他')" />
+
+            <x-confirm-field label="メールアドレス" value="{{ $inputs['email'] }}" />
+
+            <x-confirm-field label="電話番号" value="{{ $inputs['phone1'] }}-{{ $inputs['phone2'] }}-{{ $inputs['phone3'] }}" />
+
+            <x-confirm-field label="住所" value="{{ $inputs['address'] }}" />
+
+            <x-confirm-field label="建物名" value="{{ $inputs['building'] ?? 'なし' }}" />
+
+            <x-confirm-field label="お問い合わせの種類" value="{{ $category->content }}" />
+
+            <x-confirm-field label="お問い合わせ内容" value="{!! nl2br(e($inputs['detail'])) !!}" />
         </table>
 
-        <div class="confirm__buttons">
-            <button class="confirm__button" type="submit">送信</button>
-            <a class="confirm__link" href="/?back=1">修正</a>
-        </div>
+        <button class="confirm__button confirm__button--store" type="submit">送信</button>
+    </form>
+
+    <!-- 修正フォーム -->
+    <form class="confirm__form--edit" action="{{ route('contact.edit') }}" method="POST">
+        @csrf
+
+        @foreach($inputs as $key => $value)
+            @if(is_array($value))
+                @foreach($value as $k => $v)
+                    <input type="hidden" name="{{ $key }}[{{ $k }}]" value="{{ $v }}">
+                @endforeach
+            @else
+                <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+            @endif
+        @endforeach
+
+        <button class="confirm__button confirm__button--edit" type="submit">修正</button>
     </form>
 </div>
 @endsection

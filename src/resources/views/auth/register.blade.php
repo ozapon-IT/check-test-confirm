@@ -23,31 +23,19 @@
             @csrf
 
             <!-- お名前 -->
-            <div class="form__group">
-                <label class="form__label" for="name">お名前</label>
+            <x-auth-field name="name" label="お名前">
                 <input class="form__input" type="text" id="name" name="name" placeholder="例: 山田 太郎" value="{{ old('name') }}">
-                @error('name')
-                    <div class="form__error">{{ $message }}</div>
-                @enderror
-            </div>
+            </x-auth-field>
 
             <!-- メールアドレス -->
-            <div class="form__group">
-                <label class="form__label" for="email">メールアドレス</label>
-                <input class="form__input" type="email" id="email" name="email"  placeholder="例: test@example.com" value="{{ old('email') }}">
-                @error('email')
-                    <div class="form__error">{{ $message }}</div>
-                @enderror
-            </div>
+            <x-auth-field name="email" label="メールアドレス">
+                <input class="form__input" type="email" id="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
+            </x-auth-field>
 
             <!-- パスワード -->
-            <div class="form__group">
-                <label class="form__label" for="password">パスワード</label>
+            <x-auth-field name="password" label="パスワード">
                 <input class="form__input" type="password" id="password" name="password" placeholder="例: coachtech1106">
-                @error('password')
-                    <div class="form__error">{{ $message }}</div>
-                @enderror
-            </div>
+            </x-auth-field>
 
             <!-- 登録ボタン -->
             <div class="form__group form__group--submit">

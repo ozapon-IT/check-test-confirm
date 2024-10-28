@@ -16,10 +16,11 @@
   font-size: 1.8rem;
 }
 
+/* 確認フォーム */
 .confirm__table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   border: 1px solid #eee;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -42,31 +43,38 @@
   text-align: left;
 }
 
-.confirm__buttons {
-  text-align: center;
-}
-
 .confirm__button {
   width: 100px;
   padding: 5px 10px;
-  border: none;
-  cursor: pointer;
   font-size: 1rem;
+  border: none;
+}
+
+.confirm__button--store {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
   color: #fff;
   background-color: #957760;
   transition: background-color 0.3s;
 }
 
-.confirm__button:hover {
+.confirm__button--store:hover {
   background-color: #6a4e3b;
 }
 
-.confirm__link {
-  color: inherit;
-  margin-left: 40px;
-  text-decoration: none;
+
+/* 修正フォーム */
+.confirm__form--edit {
+  margin-top: 20px;
+  text-align: center;
 }
 
-.confirm__link:hover {
+.confirm__button--edit {
+  color: inherit;
+  background-color: #fff;
+}
+
+.confirm__button--edit:hover {
   text-decoration: underline;
 }
