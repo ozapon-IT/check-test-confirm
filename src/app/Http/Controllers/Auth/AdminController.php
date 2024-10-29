@@ -36,11 +36,12 @@ class AdminController extends Controller
         return view('auth.admin', compact('contacts', 'categories'));
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $contact = Contact::findOrFail($id);
         $contact->delete();
-        return redirect()->route('admin.index');
+
+        return redirect()->route('admin.index', $request->query());
     }
 
     // エクスポート機能の実装

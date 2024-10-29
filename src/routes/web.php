@@ -14,20 +14,20 @@ use App\Http\Controllers\Auth\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // 公開ルート
-Route::controller(ContactController::class)->group(function () {
-    Route::get('/', 'index')->name('contact.index');
-    Route::post('confirm', 'confirm')->name('contact.confirm');
-    Route::post('/store', 'store')->name('contact.store');
-    Route::post('/edit', 'edit')->name('contact.edit');
-    Route::get('/thanks', 'thanks')->name('contact.thanks');
+Route::controller(ContactController::class)->name('contacts.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('confirm', 'confirm')->name('confirm');
+    Route::post('store', 'store')->name('store');
+    Route::post('edit', 'edit')->name('edit');
+    Route::get('thanks', 'thanks')->name('thanks');
 });
 
 // 管理者ルート
-Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::get('/search', [AdminController::class, 'search'])->name('search');
-    Route::get('/export', [AdminController::class, 'export'])->name('export');
-    Route::delete('/delete/{id}', [AdminController::class, 'destroy'])->name('destroy');
+Route::prefix('admin')->middleware('auth')->controller(AdminController::class)->name('admin.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('search', 'search')->name('search');
+    Route::get('export','export')->name('export');
+    Route::delete('delete/{id}', 'destroy')->name('destroy');
 });
-

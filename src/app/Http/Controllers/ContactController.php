@@ -13,7 +13,7 @@ class ContactController extends Controller
     {
         $categories = Category::all();
 
-        return view('contact.index', compact('categories'));
+        return view('contacts.index', compact('categories'));
     }
 
     public function confirm(ContactRequest $request)
@@ -22,23 +22,17 @@ class ContactController extends Controller
 
         $category = Category::find($inputs['content']);
 
-        return view('contact.confirm', compact('inputs', 'category'));
+        return view('contacts.confirm', compact('inputs', 'category'));
     }
 
     public function store(ContactRequest $request)
     {
         $inputs = $request->all();
 
-        $genderMap = [
-            'male' => 1,
-            'female' => 2,
-            'other' => 3,
-        ];
-
         Contact::create([
             'first_name' => $inputs['first_name'],
             'last_name' => $inputs['last_name'],
-            'gender' => $genderMap[$inputs['gender']],
+            'gender' => $inputs['gender'],
             'email' => $inputs['email'],
             'tell' => $inputs['phone1'] . $inputs['phone2'] . $inputs['phone3'],
             'address' => $inputs['address'],
@@ -47,18 +41,18 @@ class ContactController extends Controller
             'detail' => $inputs['detail'],
         ]);
 
-        return redirect()->route('contact.thanks');
+        return redirect()->route('contacts.thanks');
     }
 
     public function edit(Request $request)
     {
         $inputs = $request->all();
 
-        return redirect()->route('contact.index')->withInput($inputs);
+        return redirect()->route('contacts.index')->withInput($inputs);
     }
 
     public function thanks()
     {
-        return view('contact.thanks');
+        return view('contacts.thanks');
     }
 }

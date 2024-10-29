@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder; // 追加
-use Illuminate\Support\Facades\DB; // 追加
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class Contact extends Model
 {
@@ -44,6 +44,18 @@ class Contact extends Model
         ];
 
         return $genders[$this->gender] ?? '不明';
+    }
+
+        // 性別のミューテータ
+    public function setGenderAttribute($value)
+    {
+        $genderMap = [
+            'male' => 1,
+            'female' => 2,
+            'other' => 3,
+        ];
+
+        $this->attributes['gender'] = $genderMap[$value] ?? null;
     }
 
     // ------------------------------
