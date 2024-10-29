@@ -70,7 +70,7 @@
         </div>
 
         <!-- 削除ボタン -->
-        <form action="{{ route('admin.destroy', ['id' => $contact->id]) }}" method="POST">
+        <form action="{{ route('admin.destroy', array_merge(['id' => $contact->id], request()->query())) }}" method="POST">
             @csrf
             @method('DELETE')
             <div class="button__box">
