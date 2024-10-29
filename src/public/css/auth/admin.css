@@ -1,0 +1,393 @@
+body {
+  box-sizing: border-box;
+}
+
+/* ヘッダー */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header__logout-button {
+  font-family: inherit;
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  font-size: 1rem;
+  color: #8c8373;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding: 3px 15px;
+  width: 100px;
+}
+
+.header__logout-button:hover {
+  text-decoration: underline;
+}
+
+/* メインコンテンツ */
+.admin {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.admin__title {
+  font-size: 1.8rem;
+  margin: 30px 0;
+  text-align: center;
+}
+
+/* フィルタフォーム */
+.admin__filters {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.filters__box:nth-of-type(1) {
+  width: 25%;
+  flex-grow: 0;
+}
+
+.filters__input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #e0d6cd;
+  font-size: 0.7rem;
+  color: inherit;
+  background-color: #f9f6f6;
+}
+
+.filters__select {
+  padding: 10px 20px 10px 10px;
+  height: 40px;
+  border: 1px solid #e0d6cd;
+  background-color: #eee;
+  color: inherit;
+  font-size: 0.8rem;
+}
+
+.filters__box:nth-of-type(2),
+.filters__box:nth-of-type(3) {
+  position: relative;
+}
+
+.filters__box:nth-of-type(2):after,
+.filters__box:nth-of-type(3):after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #6a4e3b;
+  pointer-events: none;
+}
+
+.filters__select--gender,
+.filters__select--inquiry {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+.filters__box:nth-of-type(2) {
+  width: 10%;
+  flex-grow: 0;
+}
+
+.filters__select--gender {
+  width: 100%;
+}
+
+.filters__box:nth-of-type(3) {
+  width: 20%;
+  flex-grow: 0;
+}
+
+.filters__select--inquiry {
+  width: 100%;
+}
+
+.filters__box:nth-of-type(4) {
+  width: 15%;
+  flex-grow: 0;
+}
+
+.filters__select--date {
+  width: 100%;
+}
+
+/* input[type="date"] の共通スタイル */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="date"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #6a4e3b;
+  pointer-events: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+input[type="date"]::-moz-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.filters__box:nth-of-type(5),
+.filters__box:nth-of-type(6) {
+  width: 10%;
+  flex-grow: 0;
+}
+
+/* ボタン */
+.filters__button {
+  height: 40px;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.filters__button--search {
+  background-color: #957760;
+  padding: 10px 30px;
+}
+
+.filters__button--search:hover {
+  background-color: #6a4e3b;
+}
+
+.filters__button--reset {
+  background-color: #c6ae97;
+  text-decoration: none;
+}
+
+.filters__button--reset:hover {
+  background-color: #957760;
+}
+
+/* 機能 */
+.admin__features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* エクスポート */
+.export-button {
+  padding: 5px 20px;
+  background-color: #f5ebe0;
+  border: 1px solid #e0d6cd;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.export-button:hover {
+  background-color: #e0d6cd;
+}
+
+/* ページネーション */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.pagination-container li:nth-of-type(1) {
+  border: 1px solid #ddd;
+}
+
+.pagination-container li:not(:nth-of-type(1)) {
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.pagination-container a,
+.pagination-container span {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: white;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination-container a:hover {
+  background-color: #ddd;
+}
+
+.pagination-container .active span {
+  background-color: #957760;
+  color: #fff;
+  cursor: default;
+}
+
+.pagination-container .disabled span {
+  color: #999;
+}
+
+/* テーブル */
+.admin__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+.table__head {
+  background-color: #957760;
+  color: #fff;
+}
+
+.table__row {
+  border-bottom: 1px solid #ddd;
+}
+
+.table__cell {
+  padding: 15px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.table__cell--head {
+  font-weight: bold;
+}
+
+.table__cell--head:nth-of-type(1) {
+  padding-left: 40px;
+}
+
+.table__cell--desc:nth-of-type(1) {
+  padding-left: 40px;
+}
+
+.table__cell--desc:nth-of-type(5) {
+  text-align: center;
+}
+
+.table__detail-button {
+  padding: 5px 20px;
+  background-color: #f5ebe0;
+  color: inherit;
+  border: 1px solid #e0d6cd;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.table__detail-button:hover {
+  background-color: #e0d6cd;
+}
+
+/* モーダルウィンドウ */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: auto;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal__content {
+  background-color: #fff;
+  border: 1px solid #c0b5b5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 5% auto;
+  padding: 70px;
+  width: 55%;
+  position: relative;
+}
+
+.contact__box {
+  display: flex;
+}
+
+.contact__item {
+  width: 40%;
+}
+
+.contact__content {
+  width: 60%;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #957760;
+  transition: color 0.3s;
+}
+
+.bi-x-circle {
+  font-size: 1.6rem;
+}
+
+.modal__close:hover {
+  color: inherit;
+}
+
+.button__box {
+  margin: 60px 0 0;
+  text-align: center;
+}
+
+.modal__delete-button {
+  background-color: #f54848;
+  color: #fff;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal__delete-button:hover {
+  background-color: red;
+}
